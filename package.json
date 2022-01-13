@@ -1,0 +1,28 @@
+{
+  "name": "monorepo-example",
+  "version": "1.0.0",
+  "description": "Monorepo example using pnpm",
+  "main": "index.js",
+  "scripts": {
+    "dev": "pnpm -r dev",
+    "doc": "storybook dev -p 6006 --no-manager-cache --no-open",
+    "build": "pnpm -r build",
+    "build:doc": "storybook build",
+    "clean": "npx rimraf ./**/node_modules"
+  },
+  "devDependencies": {
+    "@storybook/addon-a11y": "7.0.0-alpha.48",
+    "@storybook/addon-essentials": "7.0.0-alpha.48",
+    "@storybook/addon-links": "7.0.0-alpha.48",
+    "@storybook/react": "7.0.0-alpha.48",
+    "@storybook/react-vite": "7.0.0-alpha.48",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "storybook": "7.0.0-alpha.48",
+    "typescript": "^4.8.4",
+    "vite": "^3.2.3"
+  },
+  "author": "",
+  "license": "ISC",
+  "private": true
+}
