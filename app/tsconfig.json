@@ -17,7 +17,8 @@
     "jsx": "react-jsx",
     "baseUrl": "src",
     "paths": {
-      "components": ["../../packages/pckg1/src"],
+      "pckg1": ["../../packages/pckg1/src"],
+      "pckg2": ["../../packages/pckg2/src"],
     },
   },
   "include": ["./src"]

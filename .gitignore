@@ -1,1 +1,38 @@
-node_modules
+# os
+.DS_Store
+
+# editor
+.idea/
+.vscode/
+.nova/
+
+# node
+node_modules/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# env
+.env*
+
+# build
+lib/
+cjs/
+esm/
+dist/
+bin/
+
+# tests
+.e2e
+
+# lint
+.eslintcache
+
+# typescript
+*.tsbuildinfo

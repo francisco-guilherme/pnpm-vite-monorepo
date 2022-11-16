@@ -11,7 +11,8 @@
     "@emotion/styled": "^11.10.5",
     "@fontsource/ibm-plex-sans": "^4.5.13",
     "@mui/material": "^5.10.14",
-    "components": "workspace:*",
+    "pckg1": "workspace:*",
+    "pckg2": "workspace:*",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },

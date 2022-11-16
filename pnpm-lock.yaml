@@ -13,7 +13,7 @@ importers:
       react-dom: ^18.2.0
       storybook: 7.0.0-alpha.48
       typescript: ^4.8.4
-      vite: ^3.2.3
+      vite: ^3.2.4
     devDependencies:
       '@storybook/addon-a11y': 7.0.0-alpha.48_biqbaboplfbrettd7655fr4n2y
       '@storybook/addon-essentials': 7.0.0-alpha.48_wf3vkn74tbeiauqgwtkjdgsucu
@@ -35,7 +35,8 @@ importers:
       '@types/react': ^18.0.25
       '@types/react-dom': ^18.0.9
       '@vitejs/plugin-react': ^2.2.0
-      components: workspace:*
+      pckg1: workspace:*
+      pckg2: workspace:*
       prettier: ^2.7.1
       react: ^18.2.0
       react-dom: ^18.2.0
@@ -47,7 +48,8 @@ importers:
       '@emotion/styled': 11.10.5_hmjty4frusbltjhl3xd7udcm2y
       '@fontsource/ibm-plex-sans': 4.5.13
       '@mui/material': 5.10.14_thp4wrxo45nyllusrnt46mid4u
-      components: link:../packages/pckg1
+      pckg1: link:../packages/pckg1
+      pckg2: link:../packages/pckg2
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
     devDependencies:
@@ -66,19 +68,38 @@ importers:
       '@mui/material': ^5.10.14
       '@types/react': ^18.0.25
       '@types/react-dom': ^18.0.9
-      '@vitejs/plugin-react': ^2.2.0
+      pckg2: workspace:*
       react: ^18.2.0
       react-dom: ^18.2.0
       typescript: ^4.9.3
       vite: ^3.2.4
       vite-plugin-dts: ^1.7.1
+    dependencies:
+      pckg2: link:../pckg2
     devDependencies:
       '@emotion/react': 11.10.5_cuziicjcvwawlf5iuhzacuhqcy
       '@emotion/styled': 11.10.5_hmjty4frusbltjhl3xd7udcm2y
       '@mui/material': 5.10.14_thp4wrxo45nyllusrnt46mid4u
       '@types/react': 18.0.25
       '@types/react-dom': 18.0.9
-      '@vitejs/plugin-react': 2.2.0_vite@3.2.4
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+      typescript: 4.9.3
+      vite: 3.2.4
+      vite-plugin-dts: 1.7.1_vite@3.2.4
+
+  packages/pckg2:
+    specifiers:
+      '@types/react': ^18.0.25
+      '@types/react-dom': ^18.0.9
+      react: ^18.2.0
+      react-dom: ^18.2.0
+      typescript: ^4.9.3
+      vite: ^3.2.4
+      vite-plugin-dts: ^1.7.1
+    devDependencies:
+      '@types/react': 18.0.25
+      '@types/react-dom': 18.0.9
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       typescript: 4.9.3
@@ -3192,7 +3213,7 @@ packages:
   /@types/node-fetch/2.6.2:
     resolution: {integrity: sha512-DHqhlq5jeESLy19TYhLakJ07kNumXWjcDdxXsLUMJZ6ue8VZJj4kLPQVE/2mdHh3xZziNF1xppu5lwmS53HR+A==}
     dependencies:
-      '@types/node': 18.11.9
+      '@types/node': 16.18.3
       form-data: 3.0.1
     dev: true
 

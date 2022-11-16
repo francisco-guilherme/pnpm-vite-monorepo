@@ -1,5 +1,5 @@
 {
-  "name": "pckg1",
+  "name": "pckg2",
   "version": "0.0.0",
   "main": "dist/index.cjs.js",
   "module": "dist/index.es.js",
@@ -13,19 +13,10 @@
     "test": "vitest"
   },
   "peerDependencies": {
-    "@emotion/react": "^11.10.5",
-    "@emotion/styled": "^11.10.5",
-    "@mui/material": "^5.10.14",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
-  "dependencies": {
-    "pckg2": "workspace:*"
-  },
   "devDependencies": {
-    "@emotion/react": "^11.10.5",
-    "@emotion/styled": "^11.10.5",
-    "@mui/material": "^5.10.14",
     "@types/react": "^18.0.25",
     "@types/react-dom": "^18.0.9",
     "react": "^18.2.0",

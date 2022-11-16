@@ -1,7 +1,7 @@
 import React, { forwardRef } from "react";
 import Paper, { PaperProps } from "@mui/material/Paper";
 import Container from "@mui/material/Container";
-
+import { Dummy } from "pckg2";
 export interface HeaderProps
   extends Omit<PaperProps, "elevation" | "square" | "component" | "variant"> {
   /** Shadow depth. */
@@ -35,7 +35,10 @@ const Header = forwardRef<HTMLDivElement, HeaderProps>(
       {...props}
     >
       <Container disableGutters maxWidth="lg">
-        {children}
+        <>
+          {children}
+          <Dummy />
+        </>
       </Container>
     </Paper>
   )
