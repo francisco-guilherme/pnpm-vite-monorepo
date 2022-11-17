@@ -1,13 +1,12 @@
 const tsconfigPaths = require("vite-tsconfig-paths");
-const glob = require("glob");
-const path = require("path");
-
-const rootDir = path.resolve(__dirname, "../");
-const getStories = () => glob.sync(`${rootDir}/**/*.stories.@(js|jsx|ts|tsx|mdx)`, {});
 
 module.exports = {
-  stories: async () => [...getStories()],
-  addons: ["@storybook/addon-links", "@storybook/addon-essentials"],
+  stories: ["../packages/**/*.stories.@(ts|tsx|mdx)"],
+  addons: [
+    "@storybook/addon-links",
+    "@storybook/addon-essentials",
+    "@storybook/addon-a11y",
+  ],
   docs: {
     docsPage: "automatic",
     defaultName: "Docs",
@@ -17,6 +16,11 @@ module.exports = {
   },
   async viteFinal(config) {
     config.plugins.push(tsconfigPaths.default({ loose: true }));
+
+    config.optimizeDeps.include = [
+      ...(config.optimizeDeps?.include ?? []),
+      "@emotion/react",
+    ];
 
     return config;
   },

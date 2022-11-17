@@ -26,6 +26,7 @@ lib/
 cjs/
 esm/
 dist/
+!tools/addon-theme-switcher/dist
 bin/
 
 # tests

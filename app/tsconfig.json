@@ -17,9 +17,10 @@
     "jsx": "react-jsx",
     "baseUrl": "src",
     "paths": {
-      "pckg1": ["../../packages/pckg1/src"],
-      "pckg2": ["../../packages/pckg2/src"],
-    },
+      "@hitachivantara/uikit-core": ["../../packages/core/src"],
+      "@hitachivantara/uikit-icons": ["../../packages/icons/bin"],
+      "@hitachivantara/uikit-styles": ["../../packages/styles/src"]
+    }
   },
   "include": ["./src"]
 }

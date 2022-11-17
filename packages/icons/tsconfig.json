@@ -1,0 +1,17 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": "src",
+    "target": "esnext",
+    "paths": {
+      "@hitachivantara/uikit-styles": ["../../styles/src"]
+    }
+  },
+  "ts-node": {
+    "compilerOptions": {
+      "module": "commonjs"
+    }
+  },
+  "include": ["bin"],
+  "exclude": ["node_modules", "dist"]
+}

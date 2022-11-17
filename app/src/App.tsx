@@ -1,14 +1,28 @@
-import { useState } from "react";
-import { Header } from "pckg1";
-import { Dummy } from "pckg2";
+import { HvBox, HvProvider, theme } from "@hitachivantara/uikit-core";
+import { CSSProperties } from "react";
+import { Buttons, Typography } from "./components";
+import { Header, ThemeSwitcher } from "./layout";
 
-function App() {
+const styles = {
+  display: "flex",
+  flexDirection: "column",
+  gap: theme.spacing(5),
+  maxWidth: "960px",
+  margin: `${theme.spacing(5)} auto`,
+  marginTop: `calc(${theme.header.height} + 120px)`,
+} as CSSProperties;
+
+const App = () => {
   return (
-    <main>
-      <Header>Testing</Header>
-      <Dummy />
-    </main>
+    <HvProvider>
+      <Header />
+      <HvBox sx={styles}>
+        <ThemeSwitcher />
+        <Typography />
+        <Buttons />
+      </HvBox>
+    </HvProvider>
   );
-}
+};
 
 export default App;
