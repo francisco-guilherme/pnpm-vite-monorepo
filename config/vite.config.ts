@@ -1,6 +1,6 @@
 /// <reference types="vite/client" />
-import { resolve } from "path";
 import glob from "glob";
+import { resolve } from "path";
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import dts from "vite-plugin-dts";
@@ -13,6 +13,7 @@ export default defineConfig({
     dts({
       skipDiagnostics: true,
       outputDir: "dist/types",
+      entryRoot: "src",
     }),
   ],
   build: {
@@ -27,6 +28,7 @@ export default defineConfig({
         preserveModules: true,
         entryFileNames: ({ name: fileName }) => `${fileName}.js`,
       },
+      external: [/node_modules/],
     },
   },
 });

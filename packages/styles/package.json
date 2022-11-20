@@ -27,7 +27,7 @@
   ],
   "scripts": {
     "build": "tsc && vite build",
-    "clean": "del-cli ./dist",
+    "clean": "del-cli dist",
     "type-check": "tsc --noEmit"
   },
   "dependencies": {

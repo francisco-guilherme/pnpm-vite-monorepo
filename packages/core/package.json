@@ -29,7 +29,7 @@
   ],
   "scripts": {
     "build": "pnpm clean && tsc && vite build",
-    "clean": "del-cli ./dist",
+    "clean": "del-cli dist",
     "type-check": "tsc --noEmit"
   },
   "peerDependencies": {

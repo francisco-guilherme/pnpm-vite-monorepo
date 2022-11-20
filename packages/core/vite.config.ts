@@ -12,8 +12,6 @@ export default mergeConfig(
         external: [
           ...Object.keys(pkg.dependencies),
           ...Object.keys(pkg.peerDependencies),
-          "react-is",
-          "prop-types"
         ],
       },
     },

@@ -2,10 +2,7 @@
   "compilerOptions": {
     "module": "ESNext",
     "target": "es5",
-    "lib": [
-      "es2020",
-      "dom"
-    ],
+    "lib": ["es2020", "dom"],
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -19,23 +16,12 @@
     "noEmit": true,
     "baseUrl": ".",
     "paths": {
-      "@hitachivantara/uikit-core": [
-        "packages/core/src"
-      ],
-      "@hitachivantara/uikit-icons": [
-        "packages/icons/bin"
-      ],
-      "@hitachivantara/uikit-styles": [
-        "packages/styles/src"
-      ]
+      "@hitachivantara/uikit-core": ["packages/core/src"],
+      "@hitachivantara/uikit-icons": ["packages/icons/bin"],
+      "@hitachivantara/uikit-styles": ["packages/styles/src"]
     },
     "noImplicitAny": false,
     "preserveSymlinks": true
   },
-  "exclude": [
-    "**/dist",
-    "**/node_modules",
-    "**/*spec.ts*",
-    "**/*.test.ts*"
-  ]
+  "exclude": ["**/dist", "**/node_modules", "**/*spec.ts*", "**/*.test.ts*"]
 }
