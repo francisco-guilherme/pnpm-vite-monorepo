@@ -5,13 +5,12 @@ import fs from "fs"; // file system
 import recursive from "recursive-readdir";
 import yargs from "yargs"; // argument reader
 import path from "path"; // utilities for working with file and directory
-import HTMLtoJSX from "htmltojsx"; // converter from html to jsx
+import { Parser } from "html-to-react";
+import ReactDOMServer from "react-dom/server";
+
 import jsdom from "jsdom-no-contextify";
 
 import { colors } from "@hitachivantara/uikit-styles";
-
-// Language files
-import content from "./lang/en";
 
 // Local includes
 import createComponentName from "./fileSystemUtils/createComponentName";
@@ -41,19 +40,9 @@ const { rmStyle, format } = args;
 const outputPath = args.output as string;
 
 // Bootstrap base variables
-const converter = new HTMLtoJSX({ createClass: false }); // instantiate a the html to jsx converter
+const htmlToReactParser = new Parser();
+
 const svg = `./${firstArg}.svg`; // append the file extension
-
-// Exit out early arguments
-if (args.help) {
-  console.log(content.helptext);
-  process.exit(1);
-}
-
-if (args.example) {
-  console.log(content.exampleText);
-  process.exit(1);
-}
 
 const componentOutputFolder = outputPath
   ? path.resolve(process.cwd(), outputPath)
@@ -163,19 +152,33 @@ const runUtil = (fileToRead, fileToWrite, subFolder = ".", depth = 0) => {
       // such as className
       body.firstChild.setAttribute(":props:", "");
 
-      // Now that we are done with manipulating the node/s we can return it back as a string
-      output = body.innerHTML;
-
       // Convert from HTML to JSX
-      output = converter.convert(output);
+      const parsed = htmlToReactParser.parse(body.innerHTML);
+      output = ReactDOMServer.renderToStaticMarkup(parsed);
 
       // jsdom and htmltojsx will automatically (and correctly) wrap attributes in double quotes,
       // and generally just dislikes all the little markers used by react, such as the spread
       // operator. We will sub those back in manually now
-      output = output.replace(/:props:/g, "{...other}");
+
+      const widthValue = output
+        .match(/width="(\d*?)"/g)?.[0]
+        .match(/"(\d*?)"/g)?.[0]
+        .replace(/['"]+/g, "");
+
+      const heightValue = output
+        .match(/height="(\d*?)"/g)?.[0]
+        .match(/"(\d*?)"/g)?.[0]
+        .replace(/['"]+/g, "");
+
+      output = output
+        .replace(/:props:/g, "{...other}")
+        .replace(/width="(\d*?)"/g, `width={${widthValue}}`)
+        .replace(/height="(\d*?)"/g, `height={${heightValue}}`)
+        .replace('style="isolation:isolate"', "")
+        .replace('="">', ">");
 
       const sizeObject = sizeExtractor(output);
-      output = sizeReplacer(output, sizeObject);
+      output = sizeReplacer(output);
 
       const colorObject = colorExtractor(output);
       output = fillColorReplacer(output, colorObject);
